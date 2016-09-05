@@ -1,0 +1,22 @@
+*** Settings ***
+Library           Selenium2Library
+Library           OperatingSystem
+Library            String
+
+*** Variables ***
+${searchTextBox}    //input[@id='lst-ib']
+
+*** Test Cases ***
+launchBrowser
+    launchPage
+
+*** Keywords ***
+launchPage
+    Comment    sleep    15
+    open browser    https://www.google.co.in/    ff
+    Comment    sleep    30
+    input text    ${searchTextBox}    Patna
+    click element    //button[@name='btnG']
+    clear element text    ${searchTextBox}
+    input text    ${searchTextBox}    Bihar
+    click element    //button[@name='btnG']
